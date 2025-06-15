@@ -1,0 +1,85 @@
+import java.util.*;
+class Main{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter the number :");
+        int a=sc.nextInt();
+        System.out.print("DecimalToBinary give 1.\nDecimalToOctal give 2.\nDecimalToHexa give 3.\nEnter option :");
+        int b=sc.nextInt();
+        Main obj=new Main();
+        switch(b){
+        case 1:
+        {
+        String result= obj.DecimalToBinary(a);
+        System.out.println("binary value is :"+result);
+        break;
+        }
+        case 2:
+        {
+        String res= obj.DecimalToOctal(a);
+        System.out.println("Octal value is :"+res);
+        break;
+        }
+        case 8:
+        {
+        String resl= obj.DecimalToHexa(a);
+        System.out.println("hexadecimal value is :"+resl);
+        break;
+        }
+        default:
+         System.out.println("invalid option");
+        
+        }
+        
+    }
+    
+    //method 
+    String DecimalToBinary(int num){
+        if(num==0){
+            System.out.println("0");
+        }
+            String binary="";
+            while(num>0){
+                int rem=num%2;
+                binary=rem+binary;
+                num=num/2;
+            }
+            return binary; 
+        }
+        String DecimalToOctal(int num){
+        if(num==0){
+            System.out.println("0");
+        }
+            String octal=" ";
+            while(num>0){
+                int rem=num%8;
+               octal=rem+octal;
+                num=num/8;
+                
+            }
+            return octal; 
+        }
+        String DecimalToHexa(int num){
+        if(num==0){
+            System.out.println("0");
+        }
+            String hexa=" ";
+            while(num>0){
+                int rem=num%16;
+                num=num/16;
+                
+                if(rem>=0&&rem<9)
+                {
+                   hexa=rem+hexa;
+                }
+                else{
+                    char h=(char)(rem+55);
+                    hexa=h+hexa;
+                }
+                 
+                 
+                
+            }
+            return hexa; 
+        }
+    }
